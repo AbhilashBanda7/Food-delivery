@@ -35,3 +35,26 @@
     border-radius: 1vw;
     cursor: pointer;
 }
+
+@media (max-width:1050px) {
+    .Header-cont{
+        max-width: 45%;
+    }
+    
+}
+
+@media (max-width:750px) {
+    .Header-cont{
+        max-width: 75%;
+        bottom: 15px;
+        left:20px;
+    }
+    .Header-cont p{
+        display: none;
+        /* color: aqua; */
+    }
+    .Header-cont button{
+        padding: 2vw 4vw;
+    }
+    
+}

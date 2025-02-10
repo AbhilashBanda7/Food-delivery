@@ -1,24 +1,25 @@
 import React, { useState } from 'react'
 import './navbar.css'
 import { assets } from '../../frontend_assets/assets'
-function Navbar() {
+import { Link } from 'react-router-dom'
+function Navbar({setshowlogin}) {
     let [menu,setMenu]=useState('Home')
   return (
     <div className='navbar'>
-        <img src={assets.logo} alt="logo" className='logo'/>
+        <Link to={'/'}><img src={assets.logo} alt="logo" className='logo'/></Link>
         <ul className='menu'>
-            <li onClick={()=>setMenu('Home')} className={menu==="Home"?'active':""}>Home</li>
-            <li onClick={()=>setMenu('Home')} className={menu==='Menu'?'active':""}>Menu</li>
-            <li onClick={()=>setMenu('Home')} className={menu==='Phone'?'active':""}>Phone</li>
-            <li onClick={()=>setMenu('Home')} className={menu==='Contac-us'?'active':""}>Contact-us</li>
+            <Link to={'/'} onClick={()=>setMenu('Home')} className={menu==="Home"?'active':""}>Home</Link>
+            <a href='#exploremenu' onClick={()=>setMenu('Menu')} className={menu==='Menu'?'active':""}>Menu</a>
+            <a href='#AppDownload' onClick={()=>setMenu('Phone')} className={menu==='Phone'?'active':""}>Phone</a>
+            <a href='#footer' onack={()=>setMenu('Contac-us')} className={menu==='Contac-us'?'active':""}>Contact-us</a>
         </ul>
         <div className='navbar-right'>
             <img src={assets.search_icon} alt="" />
             <div className='navbar-icon'>
-              <img src={assets.basket_icon} alt="" />  
+              <Link to={'/cart'}> <img src={assets.basket_icon} alt="" onClick={()=>setMenu('menu')} className={menu==="cart"?'cart-page':""}/> </Link>
               <div className='dot'></div>
             </div>
-            <button>signin</button>
+            <button onClick={()=>setshowlogin(true)}>signin</button>
         </div>
     </div>
   )
